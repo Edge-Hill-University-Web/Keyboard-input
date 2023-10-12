@@ -1,19 +1,19 @@
-let player;
-let cursors;
-let canvas;
-
 class KeyboardExample extends Phaser.Scene {
 
+    constructor(){
+        super();
+
+        this.player;
+        this.cursors;
+        this.canvas;
+    }
     
     preload() {
         this.load.image('ship', 'assets/rocket.png');
         this.load.image('background', 'assets/background.png');
     }
 
-    create ()
-    {
-      
-        //this.add.image(400, 300, 'background');
+    create (){
         this.cursors = this.input.keyboard.createCursorKeys();
         this.player = this.physics.add.image(400, 300, 'ship');
         this.player.setScale(0.1);
@@ -21,8 +21,7 @@ class KeyboardExample extends Phaser.Scene {
         this.player.setCollideWorldBounds(true);
     }
 
-    update ()
-    {
+    update (){
         this.player.setVelocity(0);
 
         if (this.cursors.left.isDown)
